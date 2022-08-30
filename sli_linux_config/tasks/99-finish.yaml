@@ -1,0 +1,41 @@
+- name: policy INPUT chain to DROP
+  ansible.builtin.iptables:
+    chain: INPUT
+    policy: DROP
+
+- name: Save IPtables
+  ansible.builtin.shell:
+    cmd: service netfilter-persistent save
+    chdir: /usr/sbin/
+
+
+- name: "Copy sli.sh files to /root"
+  ansible.builtin.copy:
+    src: "files/start.sh"
+    dest: "/root"
+    owner: "root"
+    group: "root"
+    mode: "0744"
+
+- name: run start.sh
+  ansible.builtin.shell:
+    cmd: sh ./start.sh
+    chdir: /root
+
+- name: Vim config
+  ansible.builtin.lineinfile:
+    path: /root/.vimrc
+    line: '{{ item }}'
+    create: yes
+  loop:
+    - syntax on
+    - colorscheme elflord
+    - set incsearch
+    - set smartcase
+    - set nocompatible
+    - set history=1000
+    - set ignorecase
+    - set hlsearch
+    - set showmatch
+    - highlight Comment ctermfg=LightCyan
+    - set wrap

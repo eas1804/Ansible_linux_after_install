@@ -1,0 +1,9 @@
+---
+# tasks file for sli_linux_config
+
+- include_tasks: 1-test_connect.yaml
+- include_tasks: 2-update.yaml
+- include_tasks: 3-install_soft.yaml
+- include_tasks: 3-cronatb.yaml
+- include_tasks: 4-firewall.yaml
+- include_tasks: 99-finish.yaml

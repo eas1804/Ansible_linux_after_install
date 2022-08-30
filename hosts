@@ -1,0 +1,5 @@
+[auto]
+pc1 ansible_ssh_host=el2.mlp.pp.ua 
+
+[manual]
+pc2 ansible_ssh_host=el2.mlp.pp.ua 

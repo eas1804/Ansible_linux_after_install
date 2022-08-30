@@ -1,0 +1,6 @@
+---
+- hosts: manual
+  become: yes
+  roles: 
+    - sli_linux_config
+  

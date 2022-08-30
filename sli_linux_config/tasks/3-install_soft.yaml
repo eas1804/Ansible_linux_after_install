@@ -1,0 +1,9 @@
+---
+#1
+- name:  Install packages
+  ansible.builtin.apt:
+    name: 
+    - iptables-persistent
+    - ucaresystem-core
+    - mc
+    state: present

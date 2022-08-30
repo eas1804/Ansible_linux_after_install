@@ -1,0 +1,23 @@
+---
+- name: Add repository from PPA and install its signing key on Ubuntu target
+  ansible.builtin.apt_repository:
+    repo: ppa:utappia/stable
+    
+
+- name: apt_update
+  ansible.builtin.apt:
+    update_cache: yes
+
+
+- name: Update all packages to their latest version
+  ansible.builtin.apt:
+    name: "*"
+    state: latest
+
+
+
+- name: Upgrade the OS (apt-get dist-upgrade)
+  ansible.builtin.apt:
+    upgrade: dist
+
+    

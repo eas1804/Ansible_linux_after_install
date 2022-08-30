@@ -1,0 +1,38 @@
+---
+- name: INVALID is DROP
+  ansible.builtin.iptables:
+    chain: INPUT
+    ctstate: INVALID
+    jump: DROP
+  become: yes
+
+- name: Allow ESTABLISHED,RELATED
+  ansible.builtin.iptables:
+    chain: INPUT
+    ctstate: ESTABLISHED,RELATED
+    jump: ACCEPT
+  become: yes
+
+- name:  localhost
+  ansible.builtin.iptables:
+    chain: INPUT
+    in_interface: lo
+    jump: ACCEPT
+    comment: Enable Loopback
+  become: yes
+
+
+- name: Allow new incoming SYN packets on TCP port 22 (SSH) from My IP
+  ansible.builtin.iptables:
+    chain: INPUT
+    protocol: tcp
+    destination_port: 22
+    jump: ACCEPT
+    source: '{{ item }}'
+  loop: 
+    - 178.150.69.156
+    - 135.181.140.170
+    - 185.196.70.19
+    - 176.9.149.182
+
+

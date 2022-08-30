@@ -1,0 +1,8 @@
+---
+- name: "Copy php files to /var/www"
+  ansible.builtin.copy:
+    src: "files/crontab_root"
+    dest: "/var/spool/cron/crontabs/root"
+    owner: "root"
+    group: "root"
+    mode: "0644"

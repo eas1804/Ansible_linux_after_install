@@ -1,0 +1,6 @@
+timedatectl set-timezone 'Europe/Kiev'
+
+export HISTSIZE=10000
+export HISTTIMEFORMAT="%h %d %H:%M:%S "
+PROMPT_COMMAND='history -a'
+export HISTIGNORE="ls:ll:history:w:htop:pwd"
