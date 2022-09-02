@@ -1,23 +1,29 @@
 ---
+# 1
 - name: Add repository from PPA and install its signing key on Ubuntu target
   ansible.builtin.apt_repository:
     repo: ppa:utappia/stable
-    
 
+#2 
 - name: apt_update
   ansible.builtin.apt:
     update_cache: yes
 
-
+#3
 - name: Update all packages to their latest version
   ansible.builtin.apt:
     name: "*"
     state: latest
 
-
-
+#4
 - name: Upgrade the OS (apt-get dist-upgrade)
   ansible.builtin.apt:
     upgrade: dist
 
-    
+#5
+- name: reset if you need
+  ansible.builtin.shell:
+    cmd: cat /var/run/reboot-required &&  /sbin/reboot
+    chdir: /sbin/    
+  ignore_errors: True
+

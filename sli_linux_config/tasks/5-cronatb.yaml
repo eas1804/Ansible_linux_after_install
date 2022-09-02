@@ -1,0 +1,25 @@
+---
+- name: update_upgrade
+  cron:
+    name: update_upgrade
+    job: "/usr/bin/ucaresystem-core"
+    user: root
+    minute: "25"
+    hour: "2"
+    day: "*"
+    month: "*"
+    weekday: "*"
+
+
+
+- name: reboot if exist /sbin/reboot
+  cron:
+    name: reboot if exist /sbin/reboot
+    job: "cat /var/run/reboot-required &&  /sbin/reboot"
+    user: root
+    minute: "25"
+    hour: "3"
+    day: "*"
+    month: "*"
+    weekday: "*"
+

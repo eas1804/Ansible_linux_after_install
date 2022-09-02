@@ -6,4 +6,26 @@
     - iptables-persistent
     - ucaresystem-core
     - mc
+    - vim
+    - htop
+    - iftop
     state: present
+
+#2
+- name: Vim config
+  ansible.builtin.lineinfile:
+    path: /root/.vimrc
+    line: '{{ item }}'
+    create: yes
+  loop:
+    - syntax on
+    - colorscheme elflord
+    - set incsearch
+    - set smartcase
+    - set nocompatible
+    - set history=1000
+    - set ignorecase
+    - set hlsearch
+    - set showmatch
+    - highlight Comment ctermfg=LightCyan
+    - set wrap
