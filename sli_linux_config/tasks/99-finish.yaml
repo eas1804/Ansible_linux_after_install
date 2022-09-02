@@ -1,4 +1,4 @@
 ---
 - name: easy-rsa init-pki
   command:
-    cmd: "ls -l"
+    cmd: "df -h" 
