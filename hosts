@@ -1,2 +1,2 @@
 [manual]
-pc2 ansible_ssh_host=el2.mlp.pp.ua 
+oracle2 ansible_ssh_host=158.101.195.180
