@@ -23,3 +23,13 @@
     month: "*"
     weekday: "*"
 
+- name: update_upgrade
+  cron:
+    name: update_upgrade
+    job: "/usr/bin/ucaresystem-core"
+    user: root
+    minute: "25"
+    hour: "4"
+    day: "*"
+    month: "*"
+    weekday: "*"
