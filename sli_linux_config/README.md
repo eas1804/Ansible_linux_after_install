@@ -1,4 +1,10 @@
-1. Список доверенных IP в defaults/main.yml
-2. Список хостов в hosts
-3. Логины и ключи в каталоге group_vars
-4. ЗАпуск ansible-playbook  playbook.yaml  -i hosts  -vD
+1. Прописать IP адрес хоста, которым будем управлять  в:
+    hosts
+2. Прописать имя пользователя и путь к ключу. 
+Логины и ключи в каталоге:
+    group_vars
+3. Список доверенных IP для доступа по SSH в :
+    defaults/main.yml
+4. Запуск:
+    ansible-playbook  playbook.yaml  -i hosts  -vD
+    
